@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Unlock My Heart 🔐</title>
+  <link rel="stylesheet" href="unlock.css">
+</head>
+<body>
+
+<!-- Floating Hearts -->
+<div class="heart-container">
+  <span>💗</span><span>💖</span><span>💕</span><span>💞</span><span>💓</span>
+  <span>💗</span><span>💖</span><span>💕</span><span>💞</span><span>💓</span>
+</div>
+
+<div class="unlock-box">
+  <h1>Just One Little Thing 💌</h1>
+  <p>
+    There is one word that means<br>
+    everything to my heart 💖
+  </p>
+
+  <input id="secret" type="text" placeholder="Enter the secret word 💕">
+
+  <button onclick="unlock()">Unlock ❤️</button>
+
+  <p id="error"></p>
+</div>
+
+<script>
+  function unlock() {
+    const val = document.getElementById("secret").value.toLowerCase();
+    const error = document.getElementById("error");
+
+    if (val === "ammulu") {
+      window.location.href = "memories.html";
+    } else {
+      error.innerText = "Hmm… try again my love 🥺💞";
+    }
+  }
+</script>
+
+</body>
+</html>

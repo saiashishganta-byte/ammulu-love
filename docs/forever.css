@@ -1,0 +1,272 @@
+/* ===============================
+   GLOBAL RESET & BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff0f5, #ffe6ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+}
+
+/* ===============================
+   HIDDEN UTILITY
+================================ */
+.hidden {
+  display: none !important;
+}
+
+/* ===============================
+   PROMISE / FOREVER BOX
+================================ */
+.forever-box {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 32px;
+  border-radius: 20px;
+  width: 420px;
+  max-width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(255, 105, 135, 0.25);
+  animation: fadeUp 1s ease;
+  z-index: 5;
+}
+
+.forever-box h1 {
+  font-size: 2rem;
+  color: #d6336c;
+  margin-bottom: 16px;
+}
+
+.forever-box p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.forever-box .question {
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 12px 26px;
+  font-size: 1rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+button.yes {
+  background: #ff5c8a;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(255, 92, 138, 0.4);
+}
+
+button.forever {
+  background: transparent;
+  border: 2px solid #ff5c8a;
+  color: #ff5c8a;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* ===============================
+   SEE MORE BUTTON
+================================ */
+.more-box {
+  margin-top: 28px;
+  text-align: center;
+  z-index: 6;
+}
+
+.more-btn {
+  background: #fff;
+  color: #ff4f7b;
+  border: 2px dashed #ff9bb5;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+/* ===============================
+   SPIDER SCREEN
+================================ */
+#spiderScreen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+#spiderScreen img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 20px;
+  box-shadow: 0 0 60px rgba(255, 0, 100, 0.6);
+  animation: fadeInScale 1.5s ease;
+}
+
+/* ===============================
+   FINAL SCREEN
+================================ */
+.final-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #fff0f5, #ffe6ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  text-align: center;
+  padding: 24px;
+}
+
+.final-screen h1 {
+  font-size: 2.2rem;
+  color: #d6336c;
+  line-height: 1.5;
+  animation: fadeUp 2s ease;
+}
+
+/* ===============================
+   FINAL FLOATING HEARTS (JS)
+================================ */
+#final-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 29;
+}
+
+.final-heart {
+  position: absolute;
+  top: -10%;
+  animation: floatDown linear infinite;
+  opacity: 0.8;
+}
+
+/* ===============================
+   FLOWER RAIN
+================================ */
+#flower-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+#flower-rain span {
+  position: absolute;
+  top: -10%;
+  animation: floatDown linear infinite;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatDown {
+  from {
+    transform: translateY(-10vh);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* ===============================
+   📱 MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 600px) {
+
+  body {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  button {
+    width: 100%;
+    max-width: 280px;
+    font-size: 1rem;
+  }
+
+  .forever-box,
+  .letters-box,
+  .memory-card {
+    width: 95%;
+    padding: 16px;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+}

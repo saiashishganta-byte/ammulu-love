@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Forever With You 💍</title>
+  <link rel="stylesheet" href="forever.css" />
+</head>
+
+<body>
+  <!-- PROMISE HEARTS -->
+<div id="promise-hearts"></div>
+
+  <!-- FLOATING HEARTS -->
+  <div class="heart-container">
+    <span>💖</span><span>💗</span><span>💕</span><span>💞</span><span>💓</span>
+  </div>
+
+  <!-- FLOWER RAIN -->
+  <div id="flower-rain"></div>
+
+  <!-- PROMISE BOX -->
+  <div class="forever-box" id="proposalBox">
+    <h1>A Promise From My Heart 💖</h1>
+
+    <p>From this moment until forever,  
+      I promise to choose you — every single day.</p>
+
+    <p>Through smiles and silence, through dreams and doubts,  
+      my hand will always look for yours.</p>
+
+    <p class="question">
+      Ammulu… Will you walk with me for the rest of our lives? 💍
+    </p>
+
+    <div class="buttons">
+      <button class="yes" onclick="showMore()">Yes 💕</button>
+      <button class="forever" onclick="showMore()">Forever 💍</button>
+    </div>
+  </div>
+
+  <!-- SEE MORE -->
+  <div class="more-box hidden" id="moreBox">
+    <button class="more-btn" onclick="showSpiderLove()">
+      Wanna see something more…? 🕷️💖
+    </button>
+  </div>
+
+  <!-- SPIDER SCREEN -->
+  <div class="final-screen hidden" id="finalScreen">
+<div id="final-hearts"></div>
+
+  <h1>
+    I luvvvvv youuuu sooo muchhhhhhh<br />
+    myyy budiiii babbyyyy 🎀🎀💕💕
+  </h1>
+
+</div>
+<!-- SPIDER MAN LOVE SCREEN -->
+<div id="spiderScreen" class="spider-screen hidden">
+  <img src="assets/images/spider-love.jpg" alt="Spider Man & Gwen">
+</div>
+
+  <!-- AUDIO -->
+  <audio id="spiderAudio">
+    <source src="assets/music/spider-love.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- SCRIPT -->
+  <script>
+    function startFlowerRain() {
+      const container = document.getElementById("flower-rain");
+      if (container.children.length > 0) return;
+
+      const flowers = ["🌸", "🌹", "🌷", "💐", "🌺"];
+
+      for (let i = 0; i < 40; i++) {
+        const flower = document.createElement("span");
+        flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.animationDuration = 6 + Math.random() * 6 + "s";
+        flower.style.animationDelay = Math.random() * 4 + "s";
+        flower.style.fontSize = 24 + Math.random() * 16 + "px";
+        container.appendChild(flower);
+      }
+    }
+   function startPromiseHearts() {
+  const container = document.getElementById("promise-hearts");
+  const hearts = ["💖", "💕", "💗", "💘", "💞", "💓"];
+
+  setInterval(() => {
+    const heart = document.createElement("span");
+    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 18 + Math.random() * 14 + "px";
+    heart.style.animationDuration = 8 + Math.random() * 6 + "s";
+
+    container.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 15000);
+  }, 600);
+}
+
+  function showMore() {
+  // start animations
+  startFlowerRain();
+  startPromiseHearts();
+
+  // hide promise box
+  document.getElementById("proposalBox").classList.add("hidden");
+
+  // wait a bit, then show "wanna see more"
+  setTimeout(() => {
+    document.getElementById("moreBox").classList.remove("hidden");
+  }, 2000);
+}
+   function showSpiderLove() {
+  // hide everything before
+  document.getElementById("moreBox").classList.add("hidden");
+
+  const spider = document.getElementById("spiderScreen");
+  const audio = document.getElementById("spiderAudio");
+
+  // show spider screen
+  spider.classList.remove("hidden");
+
+  // play music
+  audio.currentTime = 0;
+  audio.volume = 1;
+  audio.play();
+
+  // after 13s start fading
+  setTimeout(() => {
+    spider.classList.add("fade-out");
+
+    // fade audio smoothly
+    const fade = setInterval(() => {
+      if (audio.volume > 0.05) {
+        audio.volume -= 0.05;
+      } else {
+        audio.volume = 0;
+        audio.pause();
+        clearInterval(fade);
+      }
+    }, 300);
+  }, 13000);
+
+  // after 15s show final text
+  setTimeout(() => {
+    spider.classList.add("hidden");
+    document.getElementById("finalScreen").classList.remove("hidden");
+  }, 15000);
+}
+    window.onload = () => {
+  startPromiseHearts();
+};
+
+function startFinalHearts() {
+  const container = document.getElementById("final-hearts");
+
+  setInterval(() => {
+    const heart = document.createElement("span");
+    heart.className = "final-heart";
+    heart.innerText = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 18 + Math.random() * 20 + "px";
+    heart.style.animationDuration = 6 + Math.random() * 6 + "s";
+
+    container.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 12000);
+  }, 400);
+}
+  </script>
+
+</body>
+</html>

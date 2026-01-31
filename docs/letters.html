@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>My Letters To You 💌</title>
+  <link rel="stylesheet" href="letters.css">
+</head>
+<body>
+
+<!-- background hearts -->
+<div class="heart-container">
+  <span>💗</span><span>💖</span><span>💕</span><span>💞</span><span>💓</span>
+  <span>💗</span><span>💖</span><span>💕</span>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="assets/music/love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  if (localStorage.getItem("playMusic") === "yes") {
+    music.play().catch(() => {});
+    localStorage.removeItem("playMusic");
+  }
+</script>
+
+<div class="letters-box">
+  <h1>Letters From My Heart 💖</h1>
+
+  <div class="letter">
+    <p>
+      From the moment you came into my life,  
+      everything started feeling softer, warmer, and more meaningful.
+    </p>
+  </div>
+
+  <div class="letter">
+    <p>
+      You are my comfort, my happiness,  
+      and my favourite place to rest my heart.
+    </p>
+  </div>
+
+  <div class="letter">
+    <p>
+      No matter where life takes us,  
+      my heart will always search for yours.
+    </p>
+  </div>
+
+  <button onclick="location.href='forever.html'">
+    One Last Thing 💍
+  </button>
+</div>
+
+</body>
+</html>
